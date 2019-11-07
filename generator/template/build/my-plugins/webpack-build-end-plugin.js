@@ -5,12 +5,13 @@
  * ======================================== */
 
 function BuildEndPlugin(doneCallback) {
-    this.doneCallback = doneCallback || function(status){}
+    this.doneCallback = doneCallback || function (status) {
+    }
 }
 
-BuildEndPlugin.prototype.apply = function (compiler){
+BuildEndPlugin.prototype.apply = function (compiler) {
     const _this = this
-    compiler.plugin('done',(status) => {
+    compiler.plugin('done', (status) => {
         _this.doneCallback(status)
     })
 }

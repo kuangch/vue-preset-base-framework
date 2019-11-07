@@ -25,9 +25,9 @@ let devServer = {
     },
 
     // 开发环境下的路由404处理（线上环境的nginx try_files配置）
-    historyApiFallback:{
-        rewrites: pagePaths.map( pagePath => {
-            return { from: RegExp(`^${pagePath}`), to: `${pagePath}` }
+    historyApiFallback: {
+        rewrites: pagePaths.map(pagePath => {
+            return {from: RegExp(`^${pagePath}`), to: `${pagePath}`}
         })
     }
 

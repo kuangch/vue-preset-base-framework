@@ -32,7 +32,7 @@ function getPagePaths() {
     getPageFiles().forEach(filepath => {
         let pageName = path.basename(path.dirname(filepath))
         let pagePath = `/${projectName}/${pageName}/`
-        switch (pageName){
+        switch (pageName) {
             case 'main':
                 pagePath = `/${projectName}/`
                 break
@@ -54,7 +54,7 @@ function getPagePaths() {
  */
 function injectVersionInfo(filePath) {
 
-    fs.readFile(filePath, 'utf8', function(err, data) {
+    fs.readFile(filePath, 'utf8', function (err, data) {
         if (err) {
             console.log('file read error!');
             throw err;
@@ -71,14 +71,14 @@ function injectVersionInfo(filePath) {
 
         const reg = /<script id=version>[\s\S]*?<\/script>/
 
-        let templateWidthVersionInfo = data.replace(reg,`<script id=version>console.log('${versionStr}')<\/script>`)
+        let templateWidthVersionInfo = data.replace(reg, `<script id=version>console.log('${versionStr}')<\/script>`)
 
         console.log(templateWidthVersionInfo)
-        fs.writeFile(filePath,templateWidthVersionInfo,{flag:'w',encoding:'utf-8',mode:'0666'},function(err){
-            if(err){
+        fs.writeFile(filePath, templateWidthVersionInfo, {flag: 'w', encoding: 'utf-8', mode: '0666'}, function (err) {
+            if (err) {
                 console.log("版本号修改失败")
                 console.error(err)
-            }else{
+            } else {
                 console.log("版本号修改成功");
             }
         })
@@ -89,12 +89,12 @@ function injectVersionInfo(filePath) {
  * 获取git tag版本号
  * @returns {string|string}
  */
-function getGitTag(){
+function getGitTag() {
 
     let v = ''
-    try{
-        v = childProcess.execSync('git describe --tags').toString().replace(/\n/,'')
-    }catch (err){
+    try {
+        v = childProcess.execSync('git describe --tags').toString().replace(/\n/, '')
+    } catch (err) {
         console.error(err)
     }
     return v || 'develop'

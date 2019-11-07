@@ -7,7 +7,8 @@
 import axios from 'axios'
 import vueAxios from 'vue-axios'
 import ENV from '../environment/env.config'
-const application =  require('../../application')
+
+const application = require('../../application')
 
 axios.defaults.baseURL = ENV.baseUrl + application.http_request_prefix
 axios.defaults.timeout = 1000 * 10
@@ -21,7 +22,7 @@ axios.interceptors.request.use(function (config) {
     // 取消重复请求
     if (pendingRequests[config.url]) {
         pendingRequests[config.url](config.url)
-        console.log('request cancel start: '+ config.url)
+        console.log('request cancel start: ' + config.url)
     }
 
     // 记录请求token和对应的取消api
@@ -41,7 +42,7 @@ axios.interceptors.response.use(function (response) {
 }, function (error) {
 
     // 处理取消的请求
-    if(axios.isCancel(error)){
+    if (axios.isCancel(error)) {
         console.log('request cancel: ' + error.message)
         delete pendingRequests[error.message]
         return Promise.reject({
@@ -50,7 +51,7 @@ axios.interceptors.response.use(function (response) {
         })
     }
     // 处理响应失败
-    if (error.response&&error.response.status === 401) {
+    if (error.response && error.response.status === 401) {
         console.warn('未登录,或者登录失效')
         // 未授权跳转到登录页
         window.location.href = '/?redirect=true'
@@ -61,12 +62,12 @@ axios.interceptors.response.use(function (response) {
  * 取消所有请求
  */
 axios.$cancelAll = function () {
-    for(let pendingRequest in pendingRequests){
+    for (let pendingRequest in pendingRequests) {
         pendingRequests[pendingRequest](pendingRequest)
     }
 }
 
 export default function (Vue) {
     Vue.$http = axios
-    Vue.use(vueAxios,axios)
+    Vue.use(vueAxios, axios)
 }

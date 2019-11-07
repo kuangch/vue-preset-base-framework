@@ -12,7 +12,7 @@ const pages = {}
 
 const getHtmlFile = function (pageName) {
     let fileName = `${projectName}/${pageName}/index.html`
-    switch (pageName){
+    switch (pageName) {
         case 'main':
             fileName = `${projectName}/index.html`
             break
@@ -27,8 +27,8 @@ const getHtmlFile = function (pageName) {
 util.getPageFiles().forEach(filepath => {
     let pageName = path.basename(path.dirname(filepath))
     pages[pageName] = {
-        entry:filepath,
-        title:pageName,
+        entry: filepath,
+        title: pageName,
         filename: getHtmlFile(pageName),
         // chunks:['vue_jquery',pageName]
     }

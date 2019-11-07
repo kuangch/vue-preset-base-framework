@@ -9,6 +9,7 @@ import ui from './ui'
 import login from './login'
 import handle from './handle'
 import constants from './constants'
+
 const Base = {}
 
 Base.install = function (Vue) {

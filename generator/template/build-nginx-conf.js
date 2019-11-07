@@ -8,7 +8,7 @@ const fs = require('fs');
 const render = require('json-templater/string');
 const path = require('path');
 const endOfLine = require('os').EOL;
-const application =  require('./src/application')
+const application = require('./src/application')
 
 const rawArgv = process.argv.slice(2)
 const args = require('minimist')(rawArgv)
@@ -74,18 +74,19 @@ server {
 
 const locationTemplate = []
 util.getPagePaths().forEach(function (item) {
-    locationTemplate.push(render(LOCALTION_TEMPLATE,{
+    locationTemplate.push(render(LOCALTION_TEMPLATE, {
         page_paths: item
     }))
 })
 
-fs.writeFileSync(OUTPUT_PATH,render(NGINX_TEMPLATE,{
+fs.writeFileSync(OUTPUT_PATH, render(NGINX_TEMPLATE, {
     location_history_url: locationTemplate.join(endOfLine)
 }))
 
 function pathOfPlatform(p) {
-    return path.resolve(__dirname,p).replace(/\\/g,'/')
+    return path.resolve(__dirname, p).replace(/\\/g, '/')
 }
+
 // 获取后端配置
 function getBackendConfig(file) {
     const regex = {
@@ -96,13 +97,13 @@ function getBackendConfig(file) {
 
     const conf = {}
     file = path.resolve(file)
-    if(!fs.existsSync(file)) return {}
+    if (!fs.existsSync(file)) return {}
 
-    const lines = fs.readFileSync(file,"utf-8").split(/\r\n|\r|\n/)
+    const lines = fs.readFileSync(file, "utf-8").split(/\r\n|\r|\n/)
     lines.forEach(function (line) {
-        if(regex.comment.test(line)) return
-        if(regex.section.test(line)) return
-        if(regex.param.test(line)){
+        if (regex.comment.test(line)) return
+        if (regex.section.test(line)) return
+        if (regex.param.test(line)) {
             const match = line.match(regex.param)
             conf[match[1]] = match[2]
         }

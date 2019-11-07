@@ -5,7 +5,7 @@
  * ======================================== */
 
 // webpack构建的代码分割相关配置
-module.exports =  function splitChunk(webpackChainConfig) {
+module.exports = function splitChunk(webpackChainConfig) {
 
     // 代码分割
     const commonOptions = {

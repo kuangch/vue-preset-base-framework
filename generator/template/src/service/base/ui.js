@@ -4,9 +4,7 @@
  *     date : 2018/10/18
  * ======================================== */
 
-import {
-    Button
-} from 'element-ui'
+import {Button} from 'element-ui'
 import '../../common/common.css'
 import '../../common/default.style.scss'
 

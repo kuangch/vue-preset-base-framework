@@ -1,3 +1,3 @@
-var APP_CONFIG ={
+var APP_CONFIG = {
     HIDDEN_C2: true
 }

@@ -5,7 +5,7 @@ echo "npm: `npm -v`"
 
 # change directory according your physical truth
 SCRIPT_PATH=$(cd `dirname $0`; pwd)
-gitDir="/opt/repos/base_framework"
+gitDir="/opt/repos/<%= rootOptions.projectName %>"
 
 echo -e "\033[32m [AUTO SYNC] sync demo start \033[0m"
 cd $gitDir

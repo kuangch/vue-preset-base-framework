@@ -15,12 +15,12 @@ module.exports = {
     pages,
 
     // 链式配置
-    chainWebpack:(config) =>{
+    chainWebpack: (config) => {
 
         // config.module.set('noParse',
         //     /^(vue|vue-router|vuex|vuex-router-sync|element-ui|axios|three)$/)
 
-        config.devtool(process.env.NODE_ENV === 'production'? "cheap-module-source-map": "cheap-module-eval-source-map")
+        config.devtool(process.env.NODE_ENV === 'production' ? "cheap-module-source-map" : "cheap-module-eval-source-map")
 
         // 配置代码分割
         splitChunk(config)
