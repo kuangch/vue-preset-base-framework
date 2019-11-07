@@ -1,0 +1,48 @@
+{
+  "name": "base_framework",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "element-ui": "^2.4.10",
+    "socket.io-client": "^2.2.0",
+    "vue": "^2.5.17",
+    "vue-axios": "^2.1.4",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.5",
+    "@vue/cli-plugin-eslint": "^3.0.5",
+    "@vue/cli-plugin-unit-mocha": "^3.0.5",
+    "@vue/cli-service": "^3.0.5",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-plugin-component": "^1.1.1",
+    "chai": "^4.1.2",
+    "compression-webpack-plugin": "^2.0.0",
+    "happypack": "^5.0.1",
+    "imagemin": "^6.1.0",
+    "imagemin-optipng": "^6.0.0",
+    "imagemin-svgo": "^7.0.0",
+    "img-loader": "^3.0.1",
+    "json-templater": "^1.0.4",
+    "minimist": "^1.2.0",
+    "node-sass": "^4.10.0",
+    "progress-bar-webpack-plugin": "^1.12.1",
+    "sass-loader": "^7.1.0",
+    "uglify-es": "^3.3.9",
+    "url-loader": "^1.1.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
